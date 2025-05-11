@@ -11,7 +11,7 @@ const Sidebar = () => {
 <div className='w-64 bg-black h-full text-white p-4 md:block hidden pt-[72px] fixed top-0 left-0 z-40'>
       <ul className='space-y-4'>
         {[
-          { path: '/location', label: 'Live Location' },
+          { path: '/', label: 'Live Location' },
           { path: '/payroll', label: 'Payroll' },
           { path: '/attendance', label: 'Attendance' },
           { path: '/leave', label: 'Leave Management' },

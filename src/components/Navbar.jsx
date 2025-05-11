@@ -20,7 +20,7 @@ const Navbar = () => {
       {isOpen && (
         <div className="absolute top-full left-0 w-full bg-black text-white space-y-2 px-4 py-4 shadow-lg md:hidden z-50">
           <Link
-            to="/location"
+            to="/"
             onClick={() => setIsOpen(false)}
             className="block hover:bg-gray-700 p-2 rounded"
           >
