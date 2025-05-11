@@ -11,8 +11,9 @@ const Payroll = () => {
   useEffect(() => {
     const fetchEmployees = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/api/employees');
-        setEmployees(response.data);
+        const response = await axios.get('https://selectiontask.onrender.com/api/payroll');
+        console.log('Fetched employee data:', response.data);
+        setEmployees(response.data.result);
       } catch (error) {
         console.error('Error fetching employee data:', error);
       }
@@ -35,7 +36,9 @@ const Payroll = () => {
                   <thead>
                     <tr>
                       <th className='border-b p-2'>Name</th>
-                      <th className='border-b p-2'>Position</th>
+                      {/* <th className='border-b p-2'>Paid</th> */}
+                      <th className='border-b p-2'>Role</th>
+                      <th className='border-b p-2'>Month</th>
                       <th className='border-b p-2'>Salary</th>
                       <th className='border-b p-2'>Actions</th>
                     </tr>
@@ -43,14 +46,17 @@ const Payroll = () => {
                   <tbody>
                     {employees.map((emp, index) => (
                       <tr key={index}>
-                        <td className='border-b p-2'>{emp.name}</td>
-                        <td className='border-b p-2'>{emp.position}</td>
+                        <td className='border-b p-2'>{emp.employeeId.name}</td>
+                        {/* <td className='border-b p-2'>{emp.paid}</td> */}
+                        <td className='border-b p-2'>{emp.employeeId.role}</td>
+                        <td className='border-b p-2'>{emp.month}</td>
                         <td className='border-b p-2'>₹{emp.salary}</td>
                         <td className='border-b p-2'>
                           <button className='bg-blue-500 text-white px-2 py-1 rounded'>
                             View Payslip
                           </button>
                         </td>
+
                       </tr>
                     ))}
                   </tbody>

@@ -11,8 +11,9 @@ const Attendance = () => {
   useEffect(() => {
     const fetchAttendance = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/api/attendance');
-        setAttendanceData(response.data);
+        const response = await axios.get('https://selectiontask.onrender.com/api/attendance');
+        console.log('Fetched attendance data:', response.data);
+        setAttendanceData(response.data.result);
       } catch (error) {
         console.error('Error fetching attendance data:', error);
       }
@@ -37,15 +38,20 @@ const Attendance = () => {
                   <thead>
                     <tr>
                       <th className='border-b p-2'>Name</th>
+                      <th className='border-b p-2'>Email</th>
                       <th className='border-b p-2'>Date</th>
                       <th className='border-b p-2'>Status</th>
+                      <th className='border-b p-2'>Role</th>
+
                     </tr>
                   </thead>
                   <tbody>
                     {attendanceData.map((record, index) => (
                       <tr key={index}>
-                        <td className='border-b p-2'>{record.name}</td>
+                        <td className='border-b p-2'>{record.employeeId.name}</td>
+                        <td className='border-b p-2'>{record.employeeId.email}</td>
                         <td className='border-b p-2'>{record.date}</td>
+                        
                         <td
                           className={`border-b p-2 ${
                             record.status === 'Present' ? 'text-green-600' : 'text-red-600'
@@ -53,6 +59,7 @@ const Attendance = () => {
                         >
                           {record.status}
                         </td>
+                        <td className='border-b p-2'>{record.employeeId.role}</td>
                       </tr>
                     ))}
                   </tbody>
