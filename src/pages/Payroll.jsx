@@ -36,7 +36,7 @@ const Payroll = () => {
                   <thead>
                     <tr>
                       <th className='border-b p-2'>Name</th>
-                      {/* <th className='border-b p-2'>Paid</th> */}
+                      
                       <th className='border-b p-2'>Role</th>
                       <th className='border-b p-2'>Month</th>
                       <th className='border-b p-2'>Salary</th>
@@ -47,7 +47,7 @@ const Payroll = () => {
                     {employees.map((emp, index) => (
                       <tr key={index}>
                         <td className='border-b p-2'>{emp.employeeId.name}</td>
-                        {/* <td className='border-b p-2'>{emp.paid}</td> */}
+                        
                         <td className='border-b p-2'>{emp.employeeId.role}</td>
                         <td className='border-b p-2'>{emp.month}</td>
                         <td className='border-b p-2'>₹{emp.salary}</td>
